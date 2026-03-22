@@ -1,0 +1,205 @@
+{
+  "rules": [
+    {
+      "action": "delete",
+      "conditions": {
+        "text_contains": "Reaction Daily Digest"
+      },
+      "description": "Auto-delete daily digest notifications"
+    },
+    {
+      "action": "phishing_report",
+      "conditions": {
+        "domain_spoof": true
+      },
+      "description": "If display name matches internal staff but domain is not @prestonmotor.com"
+    },
+    {
+      "action": "phishing_report",
+      "conditions": {
+        "text_contains": "[External]",
+        "internal_name_impersonation": true
+      },
+      "description": "Any email tagged [External] claiming to be from internal staff, executives, or IT"
+    },
+    {
+      "action": "phishing_report",
+      "conditions": {
+        "text_contains": "[External]",
+        "keywords_any": [
+          "wire transfer",
+          "gift card",
+          "payment",
+          "credential reset",
+          "urgent payment",
+          "invoice"
+        ]
+      },
+      "description": "Executive impersonation requesting money/creds"
+    },
+    {
+      "action": "flag",
+      "conditions": {
+        "text_contains": "[External]",
+        "keywords_any": [
+          "act immediately",
+          "account will be suspended",
+          "time sensitive",
+          "urgent action required"
+        ]
+      },
+      "description": "Urgency red flag combined with external sender"
+    },
+    {
+      "action": "flag",
+      "conditions": {
+        "has_attachment": true,
+        "is_external": true,
+        "trusted_sender": false
+      },
+      "description": "Unexpected attachments from external senders flagged for human review"
+    },
+    {
+      "action": "whitelist_domain",
+      "conditions": {
+        "domain": "aw-law.com"
+      },
+      "description": "Trust Tim Wilson lawyer email domain to bypass [External] suspicion"
+    },
+    {
+      "action": "whitelist_sender",
+      "conditions": {
+        "text_contains": "Gretta Hernandez-Gomez"
+      },
+      "description": "Trust Gretta as internal despite thread [External] tags"
+    },
+    {
+      "action": "leave_inbox",
+      "conditions": {
+        "keywords_any": [
+          "compliance",
+          "additional documentation",
+          "state requirement",
+          "compliant",
+          "paylocity"
+        ],
+        "trusted_sender": true
+      },
+      "description": "Important but not urgent (Compliance/Documentation). Leave in Inbox unread for Ryan to process when ready."
+    },
+    {
+      "action": "notify_telegram_immediately",
+      "conditions": {
+        "trusted_sender": true,
+        "urgency_detected": true,
+        "keywords_any": [
+          "urgent",
+          "ASAP",
+          "need this now",
+          "emergency"
+        ]
+      },
+      "description": "Truly urgent emails from trusted internal senders (e.g. Tim). Ping Ryan on Telegram immediately."
+    },
+    {
+      "action": "delete",
+      "conditions": {
+        "text_contains": "BDC Alert - Tag and Title",
+        "sender_contains": "Alert"
+      },
+      "description": "Auto-delete BDC Tag and Title alerts sent to titles distribution list"
+    },
+    {
+      "action": "leave_inbox",
+      "conditions": {
+        "sender_contains": "VADA"
+      },
+      "description": "Leave VADA newsletters in inbox for potential inclusion in Monday Compliance Newsletter"
+    },
+    {
+      "action": "flag",
+      "conditions": {
+        "sender_contains": "ryanmcc09@gmail.com"
+      },
+      "description": "Emails Ryan forwards to himself are for memory/to-dos. Flag them as important."
+    },
+    {
+      "action": "leave_inbox",
+      "conditions": {
+        "sender_contains": "Dave Wilson",
+        "text_contains": "Quote of the day"
+      },
+      "description": "Leave Dave Wilson's quotes of the day alone."
+    },
+    {
+      "action": "whitelist_sender",
+      "conditions": {
+        "sender_contains": "tode@agentmail.to"
+      },
+      "description": "Trust Tode the OpenClaw agent."
+    },
+    {
+      "action": "delete",
+      "conditions": {
+        "keywords_any": [
+          "tell us how we did",
+          "take 1 minute to tell us",
+          "survey"
+        ]
+      },
+      "description": "Auto-delete vendor surveys."
+    },
+    {
+      "action": "leave_inbox",
+      "conditions": {
+        "sender_contains": "Support"
+      },
+      "description": "Leave support/vendor follow-ups alone (important but not urgent)."
+    },
+    {
+      "action": "notify_telegram_immediately",
+      "conditions": {
+        "sender_contains": "twilson@prestonmotor.com",
+        "keywords_any": [
+          "call to action"
+        ]
+      },
+      "description": "Urgent COMAR email from Tim (twilson) with call to action"
+    },
+    {
+      "action": "notify_telegram_immediately",
+      "conditions": {
+        "sender_contains": "tim@aw-law.com",
+        "keywords_any": [
+          "call to action"
+        ]
+      },
+      "description": "Urgent COMAR email from Tim (AW-Law) with call to action"
+    },
+    {
+      "action": "leave_inbox",
+      "conditions": {
+        "sender_contains": "Andrew Mullins",
+        "keywords_any": [
+          "Sales Manager access",
+          "@mentioned"
+        ]
+      },
+      "description": "Leave Sales Manager access emails in inbox when Andrew Mullins is sender or mentioned"
+    },
+    {
+      "action": "delete",
+      "conditions": {
+        "sender_contains": "Billie Jo Newman",
+        "keywords_any": [
+          "GAP",
+          "PTO",
+          "Bank of America",
+          "lender update",
+          "lender policy"
+        ]
+      },
+      "description": "Auto-delete lender updates from Billie Jo Newman (fin director)"
+    }
+  ]
+}
