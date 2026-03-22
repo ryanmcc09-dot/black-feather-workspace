@@ -1,0 +1,21 @@
+{
+  "version": 1,
+  "skills": {
+    "tavily-tool": {
+      "version": "0.1.1",
+      "installedAt": 1773625261455
+    },
+    "youtube-transcript": {
+      "version": "1.0.1",
+      "installedAt": 1773680521523
+    },
+    "qmd": {
+      "version": "1.0.0",
+      "installedAt": 1773684841272
+    },
+    "youtube-watcher": {
+      "version": "1.0.0",
+      "installedAt": 1773850808175
+    }
+  }
+}

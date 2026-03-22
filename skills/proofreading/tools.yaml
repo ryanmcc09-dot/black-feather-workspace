@@ -1,0 +1,74 @@
+# Proofreading Tool
+
+## Overview
+Systematic chapter review for manuscripts using structured analysis.
+
+## Configuration
+
+```yaml
+proofreading:
+  enabled: true
+  style_preferences:
+    em_dash_allowed: false  # Author prefers to avoid
+    contraction_allowed: true  # Acceptable for dialogue
+  report_level: "standard"  # quick | standard | detailed
+```
+
+## Usage
+
+### As Subagent Tool
+When a subagent is spawned for proofreading:
+
+```
+Poe (Chief of Staff):
+1. Receive chapter text from Ryan
+2. Spawn proofreading subagent
+3. Subagent calls proofreading skill
+4. Skill analyzes chapter
+5. Subagent returns formatted report
+6. Poe synthesizes for Ryan
+```
+
+### Tool Call Format
+```python
+proofread_chapter(
+    text: str,
+    chapter_title: str = None,
+    report_level: str = "standard"
+) -> str
+```
+
+### Example
+```python
+result = proofread_chapter(
+    text=chapter1_text,
+    chapter_title="Chapter 1: The Beginning",
+    report_level="standard"
+)
+print(result)
+```
+
+## Analysis Checks
+
+1. **Em Dash Detection** - Flags em dashes (author preference to avoid)
+2. **Contraction Count** - Notes usage in dialogue vs narrative
+3. **Dialogue Formatting** - Checks quotation consistency
+4. **Pacing Analysis** - Identifies long paragraphs, scene breaks
+5. **Tense Consistency** - Verifies narrative voice
+6. **Perspective Check** - Confirms first/third person alignment
+7. **Formatting Issues** - Flags structural problems
+
+## Output
+Structured report with:
+- Critical issues (must fix)
+- Style notes (consistency)
+- Pacing flags (flow)
+- Formatting issues (structure)
+- Recommendations (actionable)
+- Overall assessment (summary)
+
+## Integration Notes
+- Designed for subagent use (no persistent memory needed)
+- Each chapter reviewed independently
+- Can track recurring issues across chapters
+- Report is concise (<2000 words)

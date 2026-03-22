@@ -1,0 +1,6 @@
+#!/bin/bash
+# QMD wrapper script for workspace
+
+WORKSPACE="${1:-/home/ryan-mccormick/.openclaw/workspace}"
+cd "$WORKSPACE"
+./node_modules/@tobilu/qmd/bin/qmd "$@"

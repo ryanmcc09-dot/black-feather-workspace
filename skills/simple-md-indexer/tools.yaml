@@ -1,0 +1,74 @@
+# Simple MD Indexer Tool
+
+## Overview
+Lightweight markdown file indexer and search engine. No dependencies, immediate results.
+
+## Commands
+
+### Add Collection
+```bash
+python3 scripts/indexer.py add <path> <name> [--mask <pattern>]
+```
+
+### Search
+```bash
+python3 scripts/indexer.py search <query> [--collection <name>] [--top-k <N>]
+```
+
+### Status
+```bash
+python3 scripts/indexer.py status
+```
+
+## Configuration
+
+```yaml
+simple_md_indexer:
+  enabled: true
+  cache_dir: ~/.cache/simple-md/
+  default_collection: organization
+  top_k: 10
+```
+
+## Use Cases
+
+1. **Quick Documentation Search**
+   - "Find where we discussed mission"
+   - "Show me Shepherd agent architecture"
+   
+2. **Project Navigation**
+   - "What files are in organization?"
+   - "List all markdown files"
+   
+3. **Research Reference**
+   - "Search video insights"
+   - "Find hardware stack details"
+
+## Example Workflow
+
+```python
+# 1. Index workspace
+indexer.add_collection("~/.openclaw/workspace", "organization", "**/*.md")
+
+# 2. Search for mission
+results = indexer.search("revenue streams creative work")
+
+# 3. Display top results
+for result in results[:5]:
+    print(f"{result['file']}: {result['snippet']}")
+```
+
+## Output Format
+
+**Search Results:**
+```
+Found 3 results:
+----------------------------------------
+1. [organization] USER.md
+   Score: 5
+   **Mission**: To build revenue streams that allow full-time devotion to...
+```
+
+---
+
+*Alternative to QMD - works immediately, no setup required.*
