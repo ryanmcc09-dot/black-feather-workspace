@@ -6,3 +6,4 @@ projects/
 skills/outlook-automation/outlook.json
 *.json
 skills/*/
+scripts/
