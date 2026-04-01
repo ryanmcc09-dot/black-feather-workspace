@@ -2,3 +2,7 @@ node_modules/
 logs/
 .DS_Store
 projects/
+.env.mission-control
+skills/outlook-automation/outlook.json
+*.json
+skills/*/
