@@ -1,0 +1,75 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Article Plan",
+  "description": "Article plan record owned by Abnett",
+  "type": "object",
+  "required": ["id", "title", "articleType", "primaryGame", "primaryTopic", "status", "createdAt", "updatedAt"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique record identifier"
+    },
+    "title": {
+      "type": "string",
+      "description": "Proposed article title"
+    },
+    "articleType": {
+      "type": "string",
+      "description": "Type of article",
+      "enum": ["news", "review", "guide", "opinion", "analysis", "listicle", "interview", "other"]
+    },
+    "intendedAudience": {
+      "type": "string",
+      "description": "Target audience for the article"
+    },
+    "primaryGame": {
+      "type": "string",
+      "description": "Primary game the article focuses on"
+    },
+    "primaryTopic": {
+      "type": "string",
+      "description": "Primary topic or theme of the article"
+    },
+    "linkedResearchIds": {
+      "type": "array",
+      "description": "IDs of supporting research records",
+      "items": { "type": "string" }
+    },
+    "angle": {
+      "type": "string",
+      "description": "Unique angle or perspective for this article"
+    },
+    "duplicationStatus": {
+      "type": "string",
+      "description": "Duplication check result",
+      "enum": ["clear", "related", "duplicate_risk", "blocked"]
+    },
+    "duplicationNotes": {
+      "type": "string",
+      "description": "Notes on duplication check findings"
+    },
+    "marketingSignalIds": {
+      "type": "array",
+      "description": "IDs of related marketing signals considered",
+      "items": { "type": "string" }
+    },
+    "status": {
+      "type": "string",
+      "description": "Current status of the plan",
+      "enum": ["drafting", "planned", "ready_for_drafting", "drafting", "blocked"]
+    },
+    "warnings": {
+      "type": "array",
+      "description": "Warnings or concerns",
+      "items": { "type": "string" }
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "updatedAt": {
+      "type": "string",
+      "format": "date-time"
+    }
+  }
+}

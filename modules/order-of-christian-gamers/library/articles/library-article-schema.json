@@ -1,0 +1,64 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Library Article",
+  "description": "Published article archive record owned by Ed",
+  "type": "object",
+  "required": ["id", "publicationId", "title", "slug", "publicationDate", "createdAt"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique record identifier"
+    },
+    "publicationId": {
+      "type": "string",
+      "description": "ID of the source publication record"
+    },
+    "draftId": {
+      "type": "string",
+      "description": "ID of the source draft"
+    },
+    "reviewId": {
+      "type": "string",
+      "description": "ID of the editorial review"
+    },
+    "title": {
+      "type": "string",
+      "description": "Article title"
+    },
+    "slug": {
+      "type": "string",
+      "description": "URL-friendly slug"
+    },
+    "excerpt": {
+      "type": "string",
+      "description": "Article excerpt"
+    },
+    "gameName": {
+      "type": "string",
+      "description": "Primary game"
+    },
+    "topic": {
+      "type": "string",
+      "description": "Primary topic"
+    },
+    "tags": {
+      "type": "array",
+      "description": "Article tags",
+      "items": { "type": "string" }
+    },
+    "linkedResearchIds": {
+      "type": "array",
+      "description": "IDs of linked research records",
+      "items": { "type": "string" }
+    },
+    "publicationDate": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Date of publication"
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time"
+    }
+  }
+}

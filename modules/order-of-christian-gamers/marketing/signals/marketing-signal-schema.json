@@ -1,0 +1,65 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Marketing Signal",
+  "description": "Marketing signal record owned by Robin",
+  "type": "object",
+  "required": ["id", "signalType", "topic", "summary", "status", "createdAt"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique record identifier"
+    },
+    "signalType": {
+      "type": "string",
+      "description": "Type of signal",
+      "enum": ["trend", "seasonal", "news", "community", "gap", "other"]
+    },
+    "topic": {
+      "type": "string",
+      "description": "Topic or theme the signal relates to"
+    },
+    "gameName": {
+      "type": "string",
+      "description": "Game name if applicable"
+    },
+    "summary": {
+      "type": "string",
+      "description": "Summary of the signal"
+    },
+    "reason": {
+      "type": "string",
+      "description": "Why this signal matters"
+    },
+    "priority": {
+      "type": "string",
+      "description": "Signal priority",
+      "enum": ["high", "medium", "low"]
+    },
+    "suggestedAngle": {
+      "type": "string",
+      "description": "Suggested angle for content"
+    },
+    "source": {
+      "type": "string",
+      "description": "Source of the signal"
+    },
+    "status": {
+      "type": "string",
+      "description": "Signal status",
+      "enum": ["new", "under_consideration", "already_assigned", "already_covered", "expired"]
+    },
+    "linkedArticleIds": {
+      "type": "array",
+      "description": "IDs of articles already covering this signal",
+      "items": { "type": "string" }
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "updatedAt": {
+      "type": "string",
+      "format": "date-time"
+    }
+  }
+}

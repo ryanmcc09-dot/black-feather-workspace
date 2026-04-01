@@ -1,0 +1,53 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Promotion History",
+  "description": "Promotion history record owned by Robin",
+  "type": "object",
+  "required": ["id", "linkedArticleId", "platform", "promotionStatus", "promotedAt", "createdAt"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique record identifier"
+    },
+    "linkedArticleId": {
+      "type": "string",
+      "description": "ID of the promoted article"
+    },
+    "articleTitle": {
+      "type": "string",
+      "description": "Title of the promoted article"
+    },
+    "platform": {
+      "type": "string",
+      "description": "Platform where promotion occurred",
+      "enum": ["facebook", "x", "instagram"]
+    },
+    "promotionStatus": {
+      "type": "string",
+      "description": "Promotion status",
+      "enum": ["planned", "posted", "failed", "cancelled"]
+    },
+    "promotedAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp of promotion"
+    },
+    "campaignNotes": {
+      "type": "string",
+      "description": "Notes about the promotion campaign"
+    },
+    "linkedSignalIds": {
+      "type": "array",
+      "description": "IDs of related marketing signals",
+      "items": { "type": "string" }
+    },
+    "linkedSocialDraftId": {
+      "type": "string",
+      "description": "ID of the social draft used"
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time"
+    }
+  }
+}
