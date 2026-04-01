@@ -1,0 +1,51 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Social Draft",
+  "description": "Platform-specific social draft record owned by Robin",
+  "type": "object",
+  "required": ["id", "linkedArticleId", "platform", "draftText", "status", "createdAt"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique record identifier"
+    },
+    "linkedArticleId": {
+      "type": "string",
+      "description": "ID of the linked published article"
+    },
+    "articleTitle": {
+      "type": "string",
+      "description": "Title of the linked article for reference"
+    },
+    "platform": {
+      "type": "string",
+      "description": "Target social platform",
+      "enum": ["facebook", "x", "instagram"]
+    },
+    "draftText": {
+      "type": "string",
+      "description": "Social media draft content"
+    },
+    "caption": {
+      "type": "string",
+      "description": "Caption text if applicable"
+    },
+    "mediaNotes": {
+      "type": "string",
+      "description": "Notes about associated media (images, video)"
+    },
+    "status": {
+      "type": "string",
+      "description": "Draft status",
+      "enum": ["pending", "drafting", "ready_for_review", "approved", "posted", "blocked", "archived"]
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "updatedAt": {
+      "type": "string",
+      "format": "date-time"
+    }
+  }
+}

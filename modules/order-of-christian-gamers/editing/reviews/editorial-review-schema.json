@@ -1,0 +1,97 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Editorial Review",
+  "description": "Editorial review record owned by Ed",
+  "type": "object",
+  "required": ["id", "draftId", "status", "createdAt", "updatedAt"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique record identifier"
+    },
+    "draftId": {
+      "type": "string",
+      "description": "ID of the draft being reviewed"
+    },
+    "toneResult": {
+      "type": "object",
+      "description": "Tone review result",
+      "properties": {
+        "passed": { "type": "boolean" },
+        "notes": { "type": "string" }
+      }
+    },
+    "consistencyResult": {
+      "type": "object",
+      "description": "Consistency review result",
+      "properties": {
+        "passed": { "type": "boolean" },
+        "notes": { "type": "string" }
+      }
+    },
+    "grammarResult": {
+      "type": "object",
+      "description": "Grammar review result",
+      "properties": {
+        "passed": { "type": "boolean" },
+        "notes": { "type": "string" }
+      }
+    },
+    "clarityResult": {
+      "type": "object",
+      "description": "Clarity/readability review result",
+      "properties": {
+        "passed": { "type": "boolean" },
+        "notes": { "type": "string" }
+      }
+    },
+    "factualGroundingResult": {
+      "type": "object",
+      "description": "Factual grounding review result",
+      "properties": {
+        "passed": { "type": "boolean" },
+        "notes": { "type": "string" },
+        "linkedResearchIds": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    },
+    "theologicalAlignmentResult": {
+      "type": "object",
+      "description": "Mission/theological alignment review result",
+      "properties": {
+        "passed": { "type": "boolean" },
+        "notes": { "type": "string" }
+      }
+    },
+    "editorialStatus": {
+      "type": "string",
+      "description": "Overall editorial status",
+      "enum": ["queued_for_review", "under_review", "needs_revision", "approved", "rejected"]
+    },
+    "revisionNotes": {
+      "type": "array",
+      "description": "Specific revision requests",
+      "items": { "type": "string" }
+    },
+    "warnings": {
+      "type": "array",
+      "description": "Concerns or uncertainties flagged",
+      "items": { "type": "string" }
+    },
+    "linkedResearchIds": {
+      "type": "array",
+      "description": "Research records referenced in review",
+      "items": { "type": "string" }
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "updatedAt": {
+      "type": "string",
+      "format": "date-time"
+    }
+  }
+}

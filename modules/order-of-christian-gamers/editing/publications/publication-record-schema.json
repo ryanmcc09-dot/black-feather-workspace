@@ -1,0 +1,74 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Publication Record",
+  "description": "Publication record owned by Ed",
+  "type": "object",
+  "required": ["id", "draftId", "reviewId", "title", "status", "createdAt"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique record identifier"
+    },
+    "draftId": {
+      "type": "string",
+      "description": "ID of the published draft"
+    },
+    "reviewId": {
+      "type": "string",
+      "description": "ID of the approving editorial review"
+    },
+    "title": {
+      "type": "string",
+      "description": "Publication title"
+    },
+    "slug": {
+      "type": "string",
+      "description": "URL-friendly slug"
+    },
+    "excerpt": {
+      "type": "string",
+      "description": "Publication excerpt"
+    },
+    "category": {
+      "type": "string",
+      "description": "Publication category"
+    },
+    "tags": {
+      "type": "array",
+      "description": "Publication tags",
+      "items": { "type": "string" }
+    },
+    "gameName": {
+      "type": "string",
+      "description": "Primary game associated with publication"
+    },
+    "topic": {
+      "type": "string",
+      "description": "Primary topic of the publication"
+    },
+    "linkedResearchIds": {
+      "type": "array",
+      "description": "IDs of linked research records",
+      "items": { "type": "string" }
+    },
+    "publicationStatus": {
+      "type": "string",
+      "description": "Publication status",
+      "enum": ["draft", "scheduled", "published", "archived"]
+    },
+    "scheduledAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Scheduled publication time"
+    },
+    "publishedAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Actual publication time"
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time"
+    }
+  }
+}

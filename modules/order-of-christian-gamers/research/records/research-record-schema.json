@@ -1,0 +1,81 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Research Record",
+  "description": "Canonical research record owned by Ezra",
+  "type": "object",
+  "required": ["id", "gameName", "topic", "source", "summary", "status", "createdAt", "updatedAt"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique record identifier"
+    },
+    "gameName": {
+      "type": "string",
+      "description": "Name of the game being researched"
+    },
+    "gameType": {
+      "type": "string",
+      "description": "Type of game (e.g., board, video, tabletop)",
+      "enum": ["board", "video", "tabletop", "card", " tabletop-roleplaying", "other"]
+    },
+    "topic": {
+      "type": "string",
+      "description": "Research topic or aspect being investigated"
+    },
+    "source": {
+      "type": "string",
+      "description": "Source of the research (e.g., web, book, community)"
+    },
+    "sourceUrl": {
+      "type": "string",
+      "description": "URL link to the source if applicable"
+    },
+    "summary": {
+      "type": "string",
+      "description": "Summary of the research findings"
+    },
+    "keySignals": {
+      "type": "array",
+      "description": "Key signals or findings from the research",
+      "items": { "type": "string" }
+    },
+    "status": {
+      "type": "string",
+      "description": "Current status of the research",
+      "enum": ["new", "needs_review", "approved", "ready_for_writing", "archived", "duplicate"]
+    },
+    "duplicationStatus": {
+      "type": "string",
+      "description": "Duplication classification",
+      "enum": ["original", "related", "duplicate", "unknown"]
+    },
+    "linkedResearchIds": {
+      "type": "array",
+      "description": "IDs of related research records",
+      "items": { "type": "string" }
+    },
+    "tags": {
+      "type": "array",
+      "description": "Tags for categorization",
+      "items": { "type": "string" }
+    },
+    "warnings": {
+      "type": "array",
+      "description": "Warnings or concerns about the research",
+      "items": { "type": "string" }
+    },
+    "uncertaintyFlags": {
+      "type": "array",
+      "description": "Flags for uncertain or weak claims",
+      "items": { "type": "string" }
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "updatedAt": {
+      "type": "string",
+      "format": "date-time"
+    }
+  }
+}

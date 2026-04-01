@@ -1,0 +1,64 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Writing to Editing Handoff",
+  "description": "Handoff package from Writing to Editing, owned by Abnett",
+  "type": "object",
+  "required": ["id", "draftId", "status", "createdAt"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique record identifier"
+    },
+    "draftId": {
+      "type": "string",
+      "description": "ID of the draft being handed off"
+    },
+    "articleTitle": {
+      "type": "string",
+      "description": "Title of the article"
+    },
+    "angle": {
+      "type": "string",
+      "description": "Intended angle or perspective"
+    },
+    "linkedResearchIds": {
+      "type": "array",
+      "description": "IDs of linked research records",
+      "items": { "type": "string" }
+    },
+    "researchSummaries": {
+      "type": "array",
+      "description": "Summaries of linked research for editor reference",
+      "items": {
+        "type": "object",
+        "properties": {
+          "researchId": { "type": "string" },
+          "summary": { "type": "string" }
+        }
+      }
+    },
+    "duplicationCheckResult": {
+      "type": "string",
+      "description": "Duplication check result",
+      "enum": ["clear", "related", "duplicate_risk", "blocked"]
+    },
+    "warnings": {
+      "type": "array",
+      "description": "Unresolved warnings or questions",
+      "items": { "type": "string" }
+    },
+    "status": {
+      "type": "string",
+      "description": "Handoff status",
+      "enum": ["pending", "sent", "received", "acknowledged"]
+    },
+    "nextExpectedOwner": {
+      "type": "string",
+      "description": "Next expected owner (Ed)"
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time"
+    }
+  }
+}

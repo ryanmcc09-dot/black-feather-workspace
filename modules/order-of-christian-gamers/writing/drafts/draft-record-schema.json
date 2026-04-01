@@ -1,0 +1,65 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Draft Record",
+  "description": "Article draft record owned by Abnett",
+  "type": "object",
+  "required": ["id", "planId", "title", "status", "createdAt", "updatedAt"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique record identifier"
+    },
+    "planId": {
+      "type": "string",
+      "description": "ID of the associated article plan"
+    },
+    "title": {
+      "type": "string",
+      "description": "Article title"
+    },
+    "excerpt": {
+      "type": "string",
+      "description": "Brief excerpt or summary"
+    },
+    "body": {
+      "type": "string",
+      "description": "Full article body content"
+    },
+    "status": {
+      "type": "string",
+      "description": "Current status of the draft",
+      "enum": ["planned", "drafting", "needs_review", "ready_for_editing", "blocked"]
+    },
+    "linkedResearchIds": {
+      "type": "array",
+      "description": "IDs of supporting research records",
+      "items": { "type": "string" }
+    },
+    "wordCount": {
+      "type": "integer",
+      "description": "Word count of the draft"
+    },
+    "duplicationCheckResult": {
+      "type": "string",
+      "description": "Result of duplication check",
+      "enum": ["clear", "related", "duplicate_risk", "blocked"]
+    },
+    "warnings": {
+      "type": "array",
+      "description": "Warnings or unresolved questions",
+      "items": { "type": "string" }
+    },
+    "handoffNotes": {
+      "type": "string",
+      "description": "Notes for the editing handoff"
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "updatedAt": {
+      "type": "string",
+      "format": "date-time"
+    }
+  }
+}

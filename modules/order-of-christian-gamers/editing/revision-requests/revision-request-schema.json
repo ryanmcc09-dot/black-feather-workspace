@@ -1,0 +1,50 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Revision Request",
+  "description": "Revision request record owned by Ed",
+  "type": "object",
+  "required": ["id", "draftId", "reviewId", "status", "createdAt"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique record identifier"
+    },
+    "draftId": {
+      "type": "string",
+      "description": "ID of the draft requiring revision"
+    },
+    "reviewId": {
+      "type": "string",
+      "description": "ID of the associated editorial review"
+    },
+    "revisionItems": {
+      "type": "array",
+      "description": "Specific revision items requested",
+      "items": {
+        "type": "object",
+        "properties": {
+          "category": { "type": "string" },
+          "description": { "type": "string" },
+          "priority": { "type": "string", "enum": ["high", "medium", "low"] }
+        }
+      }
+    },
+    "status": {
+      "type": "string",
+      "description": "Revision request status",
+      "enum": ["pending", "in_progress", "addressed", "resolved"]
+    },
+    "notes": {
+      "type": "string",
+      "description": "Additional notes for the writer"
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "updatedAt": {
+      "type": "string",
+      "format": "date-time"
+    }
+  }
+}
