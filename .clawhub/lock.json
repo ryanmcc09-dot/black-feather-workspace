@@ -16,6 +16,10 @@
     "youtube-watcher": {
       "version": "1.0.0",
       "installedAt": 1773850808175
+    },
+    "discord": {
+      "version": "1.0.1",
+      "installedAt": 1774493390075
     }
   }
 }
