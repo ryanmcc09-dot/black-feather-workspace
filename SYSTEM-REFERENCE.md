@@ -73,7 +73,8 @@ Research -> Writing -> Editing/Publishing -> Marketing
 - Article plans and draft records: Abnett
 - Review, publication, and Library records: Ed
 - Marketing signals, platform drafts, and promotion history: Robin
-- System/orchestration records: Poe
+- Orchestration records: Hermes
+- System/build records: Poe
 
 ---
 
@@ -116,7 +117,8 @@ Preferred persistence:
 
 ## Current Team
 
-- Poe - orchestrator and builder
+- Hermes - orchestrator
+- Poe - builder / system implementer
 - Ezra - research
 - Abnett - writing
 - Ed - editing/publishing

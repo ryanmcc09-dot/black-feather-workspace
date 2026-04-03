@@ -60,6 +60,12 @@ Each entry should be short and structured.
 - Impact: Each agent owns their records; one-writer-many-readers enforced.
 - Related files/modules: Agent framework, HANDOFFS.md
 
+### [2026-04-03] Hermes as orchestrator, Poe as builder
+- Decision: Hermes becomes primary orchestrator; Poe becomes builder/implementer.
+- Reason: Clear role separation between workflow coordination (Hermes) and system building (Poe).
+- Impact: Hermes handles coordination, handoffs, and task routing. Poe handles implementation, architecture, and module building.
+- Related files/modules: SOUL.md, IDENTITY.md, SYSTEM-REFERENCE.md, HANDOFFS.md, BOUNDARIES.md
+
 ---
 
 *Decisions are finalized choices, not brainstorming. Update only when a decision is truly settled.*

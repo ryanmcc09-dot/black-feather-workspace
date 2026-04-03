@@ -40,6 +40,7 @@ Readers:
 - Ed
 - Robin
 - Poe
+- Hermes
 
 ### Abnett - Writing
 Writes:
@@ -51,6 +52,7 @@ Writes:
 Readers:
 - Ed
 - Robin
+- Hermes
 - Poe
 
 ### Ed - Editing and Publishing
@@ -62,6 +64,7 @@ Writes:
 
 Readers:
 - Robin
+- Hermes
 - Poe
 - future Library/search workflows
 
@@ -77,13 +80,23 @@ Readers:
 - Poe
 - future community/distribution workflows
 
-### Poe - Orchestration
+### Poe - Builder/Implementer
 Writes:
-- system-level coordination records
-- architecture references
-- workflow mapping
+- system-level build records
+- architecture implementations
+- workflow feature code
 - health visibility structures
 - system decisions and checkpoint records
+
+Readers:
+- all agents as needed
+
+### Hermes - Orchestration
+Writes:
+- workflow coordination records
+- handoff oversight records
+- checkpoint enforcement records
+- task routing records
 
 Readers:
 - all agents as needed
